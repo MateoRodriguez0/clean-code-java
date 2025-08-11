@@ -55,7 +55,7 @@ int yearOfBirth;
 
 Although in loops it is entirely posible and reasonable create short names for variables.
 ```java
-for(int i=0;i< nuumberOfRequests){
+for(int i=0; i < nuumberOfRequests){
     processsRequest(request.get(i);
 }
 ```
