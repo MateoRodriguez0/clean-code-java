@@ -1,5 +1,5 @@
  # Solid and clean code in Java
-In this repository, I will be documenting the concepts, principles and best practices of Clean code y the SOLID principles in Java. My goal is to have a resource that I can return when I need to review or consult especific examples. here, you'll find examples organized by topics, along with brief explanations for each. 
+In this repository, I will be documenting the concepts, principles, and best practices of Clean Code by the SOLID principles in Java. My goal is to have a resource that I can return to when I need to review or consult specific examples. here, you'll find examples organized by topics, along with brief explanations for each. 
 
 ## 📚 Table of Contents
 
@@ -53,7 +53,7 @@ int monthOfBirth;
 int yearOfBirth;
 ```
 
-Although in loops it is entirely posible and reasonable create short names for variables.
+Although in loops it is entirely possible and reasonable to create short names for variables.
 ```java
 for(int i=0; i < nuumberOfRequests){
     processsRequest(request.get(i);
@@ -75,7 +75,7 @@ This is not actually a list, so adding the word List can be confusing.
 Map<Integer, String> employeeList;
 ```
 
-These two classes do not have a clear difference, therefore they can cause confusing.
+These two classes do not have a clear difference, therefore they can cause confusion.
 ```java
 public class ProductData{}
 public class ProductInfo{}
@@ -103,7 +103,7 @@ String lastname;
   ```java
   String leastUsedName;
   ```
-- It's much better to choose a very large name than one that doesn't convey it's meaning clearly.
+- It's much better to choose a very large name than one that doesn't convey its meaning clearly.
 
 #### Names of classes and methods
 - The classes names must be **a name or set of names,** should not be verbs. 
@@ -122,7 +122,7 @@ public class DateParser{
 ```
 firstName, lastName, street, houseNumber, city,state, zipcode.
 ```
-These variables clearly form an address when used together, but adding a prefix could provide imformation. For example, if a User class has name but also an address.
+These variables clearly form an address when used together, but adding a prefix could provide information. For example, if a User class has a name but also an address.
 
 This way It becomes clearer what each one is used.
 ```user.getFirstName()``` **vs** ```user.getAddrFirstName()```
@@ -132,7 +132,7 @@ This way It becomes clearer what each one is used.
 
   ❌ **Bad example**
 
-  We have this function that does two things. violing this principle.
+  We have this function that does two things. violating this principle.
   ```java
   public Integer readNumbersFromFileAndCalculateTotal(String fileUrl) {
     List<String> numbers =
@@ -148,7 +148,7 @@ This way It becomes clearer what each one is used.
   ```
   ✅**Good example**
 
-  Now with the refactored code, you can see that each function does just one thing and does the same thing as the previous one,making it easier to read.
+  Now with the refactored code, you can see that each function does only one thing and does it as the previous one, making it easier to read.
   ```java
   public Integer getMonthlySales() {
     List<String> sales = readNumbersFromFile(MONTHLY_SALES_FILE_PATH);
@@ -175,7 +175,7 @@ This way It becomes clearer what each one is used.
 
   ❌ **Bad example**
 
-  This class performs functions that are not part of its responsabilities. 
+  This class performs functions that are not part of its responsibilities. 
   ```java
   public class Person {
 
@@ -189,7 +189,7 @@ This way It becomes clearer what each one is used.
   ```
   ✅ **Goog example**
   
-  However, in this version the Person class only handles its functions and the Car class handles its own.
+  However, in this version, the Person class only handles its functions, and the Car class handles its own.
    ```java
    public class Person {
 
@@ -218,7 +218,7 @@ This way It becomes clearer what each one is used.
 #### Code smell in functions
 - **Too many arguments**
   - ⚠️**Avoid the functions with >3 arguments**⚠️
-  - Divide the function in functions  smaller or encapsulating the arguments in a class.
+  - Divide the function into smaller functions or encapsulate the arguments in a class.
 - **output arguments:** Avoid passing output arguments in the functions.
   
   ❌ **Bad example**
@@ -227,11 +227,11 @@ This way It becomes clearer what each one is used.
   ```  
   ✅ **Goog example**
 
-  instead it should return the result.
+  Instead it should return the result.
     ```java
   public int calculateSum(List<Integer> numbers) {
   ```  
-- **Passing flags in the arguments:** Avoid passing boolean, it often indicates that the function is doing more of one thing. In the next expamle the better is make tow functions to each type item.
+- **Passing flags in the arguments:** Avoid passing booleans, as it often indicates that the function is doing more of one thing. In the next example, the better to  make two functions for each typeof  item.
    ```
   private static final Double PREMIUM_DISCOUNT_FACTOR = 0.2;
   private static final Double REGULAR_DISCOUNT_FACTOR = 0.1;
@@ -248,7 +248,7 @@ This way It becomes clearer what each one is used.
 ### Comments
 - Add comments just when strictly necessary.
 - They're very **difficult to maintain,** code change a lot and comments become **quickly outdated.**
-- If the code has many comments, can be for tow reasons:
+- If the code has many comments, it can be for two reasons:
   - The code is not understood => Refactoring.
   - The comments are obvious => delete comments.
 
@@ -262,16 +262,16 @@ This way It becomes clearer what each one is used.
    if(isSecure(password))
    ```
 
-- Never leave code commented out the is no longer being used. **Version control systems make commented-out code unnecessary.**
+- Never leave code commented out that is no longer being used. **Version control systems make commented-out code unnecessary.**
 
 #### Code smells in comments
-- **Inappropiate information:** anything that is better in another system (e.g. versions control system)  
+- **Inappropriate information:** anything better in another system (e.g., version control system)  
     ```java
      //@Author Mateo Josue
      //Create Date: 10-07-2025
      public class Comments
     ```
-- **Redundant comments:** This type of comments not add value because they are too obvious.
+- **Redundant comments:** These types of comments do not add value because they are too obvious.
 
 
     ```java
@@ -285,7 +285,7 @@ This way It becomes clearer what each one is used.
          return a +b;
      }
     ```
-- **Obsolete comments:** Any comment outdated must be updated or deleted, because it not add nothing.
+- **Obsolete comments:** Any comment outdated must be updated or deleted, because it adds nothing.
 
     ```java
      private Date LastLoginDate; //Last login date as String (DD-MM-YYYY HH:MM)
@@ -312,11 +312,11 @@ _The comments on a public API that **will use a lot of people** are another clea
 - Configure the IDE to automatically apply formats when saving changes.
 - The **entire team must write under the same rules.**
 - [Google styles guide](https://google.github.io/styleguide/)
-- **Vertical format**. density, order and distance.
+- **Vertical format**. density, order, and distance.
   
    ❌ **High density**
 
-  This code has high density aand hinders reading. 
+  This code has high density and hinders reading. 
   ~~~~java
   public class Dog {
     String name;
@@ -453,7 +453,7 @@ _The comments on a public API that **will use a lot of people** are another clea
 
   ✅ **Low density**
 
-  However, this code is more separated, using spaces to separate operators, parameters and conditionals, so it is easier to read.
+  However, this code is more separated, using spaces to separate operators, parameters, and conditionals, so it is easier to read.
   ```java
    public int sumFourNumbers(Integer num1, Integer num2, Integer num3, Integer num4) {
         if (num1 != null && num2 != null && num3 != null && num4 != null) {
@@ -466,7 +466,7 @@ _The comments on a public API that **will use a lot of people** are another clea
 
   ❌ **Bad identation**
 
-  The code does not respect the margins and the flow of logic is not clearly visible.
+  The code does not respect the margins, and the flow of logic is not clearly visible.
   ```java
   public int sumFourNumbers(Integer num1,Integer num2,Integer num3,Integer num4) {
   if (num1!=null&&num2!=null&&num3!=null&&num4!=null) {
@@ -475,7 +475,7 @@ _The comments on a public API that **will use a lot of people** are another clea
   return 0;
   }
   ```
-  - Always **follow the same identation rules.**
+  - Always **follow the same indentation rules.**
   - Recommended **2 or 4 spaces** of indentation
   - Recommended **maximum 100 characters,** after that amount, make a line break.
 
@@ -488,7 +488,7 @@ Error handling can make your code very dirty, so it's worth paying attention to.
 
     ❌ **Bad example**
 
-    The problem with this code is that they have to control all errors and the correct execution is not clearly seen.
+    The problem with this code is that they have to control all errors, and the correct execution is not clearly seen.
 
     ```java
     public class DeviceController {
@@ -541,7 +541,7 @@ Error handling can make your code very dirty, so it's worth paying attention to.
 
 - **Unchecked exceptions**
   
-  **Unchecked exceptions** are exceptions that inherit from the Exception class and do not require immediate handling. However, **Checked exceptions** require us to throw them or catch them in a try catch block, as in the following code.
+  **Unchecked exceptions** are exceptions that inherit from the Exception class and do not require immediate handling. However, **Checked exceptions** require us to throw them or catch them in a try-catch block, as in the following code.
 
     ```java
     public class Driver {
@@ -570,7 +570,7 @@ Error handling can make your code very dirty, so it's worth paying attention to.
     }
 
     ```
-    In this code, the **Battery** and **Engine** methods throw **Checked exceptions** type exceptions, so each method that invokes them must throw those exceptions or capture them. However, if they were **Unchecked exceptions**, they would only be captured in the **startDriving** method.mbio si fueran **Unchecked exceptions** solo se capturan en el metodo **startDriving**.
+    In this code, the **Battery** and **Engine** methods throw **Checked exceptions** type exceptions, so each method that invokes them must throw those exceptions or capture them. However, if they were **Unchecked exceptions**, they would only be captured in the **startDriving** method.
 
 - Never return **null**
 
@@ -606,7 +606,7 @@ Error handling can make your code very dirty, so it's worth paying attention to.
 
     ❌ **Bad example**
     
-    In this example, the same thing happens as in the previous case, passing null as a parameter forces us to perform unnecessary validations, and if a method does not validate **null**, a **NullPointerException** would occur.**null** ocurriria una **NullPointerException**
+    In this example, the same thing happens as in the previous case: passing null as a parameter forces us to perform unnecessary validations, and if a method does not validate **null**, a **NullPointerException** would occur.**null** ocurriria una **NullPointerException**
     ```java
     public Point getMiddlePoint(Point a, Point b) {
         if (a != null && b != null) {
@@ -644,7 +644,7 @@ Error handling can make your code very dirty, so it's worth paying attention to.
 
 **2.** Write just enough code to pass the test
 
-**3.** Improve the code without changin its behavior
+**3.** Improve the code without changing its behavior
 ### Code smells in the development environment
 - **Compilation Requires More Than One Step:** You should be able to compile the code in the simplest way possible.
 - **Tests require more than one step**
@@ -736,18 +736,18 @@ They are a set of principles proposed by Robert C. Marin that will help us:
 - Create modules with high **and loose coupling**
   
 ### Cohesion 
-- It is the degree to which the elements of a module are related.**
-- We are interested in a module having a bery high cohesion.
+- It is the degree to which the elements of a module are related.
+- We are interested in a module having a very high cohesion.
 
 ### coupling
-- Degree to which two modules are related to each other.
-- the modules should have little coupling. 
-- if a module is modified, *it should affect the others as little as possible.*
+- The degree to which two modules are related to each other.
+- The modules should have little coupling. 
+- If a module is modified, *it should affect the others as little as possible.*
 
-###  responsability principle (SRP)
+###  Responsibility principle (SRP)
 
 - A module should have **one reason to change,** not that a module should do one thing.
-- A module must be **responsable for a  user of the system.**
+- A module must be **responsible for a  user of the system.**
 
 ❌ **Bad example**
   
@@ -781,7 +781,7 @@ public class Employee {
 
  ✅ **Good example**
  
-Now this way each module would have only one reason to change.
+Now this way, each module would have only one reason to change.
 
  ```java
 public class Employee {
@@ -819,13 +819,13 @@ public class ReportPrinter {
 ```
 
 
-### Open-close principle(OPC)
+### Open-close principle(OCP)
 - A software artifact must be open for extension but closed for modification.
 - We must be able to increase the functionality of a software artifact without modifying existing functionalities. 
 
 ❌ **Bad example**
 
-In this expample we have a classe with one function that process payments, the problem that every time a payment is added the function must be modified.
+In this example, we have a class with one function that processes payments. The problem is that every time a payment is added, the function must be modified.
 ```java
  public class PaymentProcessor {
     public void process(String paymentType) {
@@ -859,7 +859,7 @@ public class PayPalPayment implements Payment {
 
 ```
 
-Now the payment processing class will not be modified and any other payment methods implemented will work.
+Now the payment processing class will not be modified, and any other payment methods implemented will work.
 
 ```java
 public class PaymentProcessor {
@@ -873,7 +873,7 @@ All classes that inherit from another can be used interchangeably without any pr
 
 ❌ **Bad example**
 
-The **Dog and  Dolphin** classes inherit from **Mammal**, but the **Dolphin** class in the function **Walk** throw an exception because a dolphin doesn't walk, **this behavior violates the principle.** because if a class has an **Mammal** object whatever implementation, it not be cause any problem.
+The **Dog and  Dolphin** classes inherit from **Mammal**, but the **Dolphin** class in the function **Walk** throws an exception because a dolphin doesn't walk, **this behavior violates the principle** because if a class has an **Mammal** object, whatever implementation, it will not cause any problem.
 ```java
 public class Mammal {
     private Integer weight;
@@ -907,7 +907,7 @@ public class Dolphin extends Mammal {
 ```
 ✅ **Good example** 
 
-The correct thing to do would be to create a new interface that containing that function and remove it from **Mammal** so that all **Mammal** implementations have the same behavior.
+The correct thing to do would be to create a new interface that contains that function and remove it from **Mammal** so that all **Mammal** implementations have the same behavior.
 
 ```java
 public class landMammal extends Mammal{
@@ -939,7 +939,7 @@ public class Dolphin extends Mammal {
 
 ```
 ### Interface segregation principle (ISP)
-Any client must be depend on functions they don't use.
+Any client must depend on functions they don't use.
 
 ❌ **Bad example**
 
@@ -963,7 +963,7 @@ public interface Operations {
 
 
 ```
-Only the advanced calculator takes of all the functions, while the basic calculator would look something like this.
+Only the advanced calculator takes care of all the functions, while the basic calculator would look something like this.
 ```java
 public class BasicCalculator implements Operations {
    
@@ -987,7 +987,7 @@ public class BasicCalculator implements Operations {
 
 ✅ **Good example** 
 
-The correct thing is for the basic calculator implementing an interface that only contains the funcitons it needs.
+The correct thing is for the basic calculator to implement an interface that only contains the functions it needs.
 
 ```java
 public interface Operations {
