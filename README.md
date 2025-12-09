@@ -21,7 +21,6 @@ In this repository, I will be documenting the concepts, principles, and best pra
     - [Test Driven development](#test-driven-development)
   - [Code smells in the development environment](#Code-smells-in-the-development-environment)
   - [Code Smells in Java](#code-smells-in-java)
-    - [Very long list of imports](#Very-long-list-of-imports)
     - [Inheriting constants](#inheriting-constants)
     - [Enums vs Constants](#enums-vs-constants)
 - [SOLID Principles](#solid-principles)
@@ -653,8 +652,6 @@ Error handling can make your code very dirty, so it's worth paying attention to.
 
 
 ### Code smells in Java
-#### Very long list of imports
-- If you use **2 or more** classes from a package, import the entire package:
 
 _import package.*_
 - We don't want to clutter up our modules with 100 lines of imports.
