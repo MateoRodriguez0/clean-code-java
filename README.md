@@ -114,7 +114,9 @@ String lastname;
 - It's much better to choose a very large name than one that doesn't convey its meaning clearly.
 </details>
 
-#### Names of classes and methods
+<details>
+<summary>Names of classes and methods</summary>
+	
 - The classes names must be **a name or set of names,** should not be verbs. 
 - The methods must be **verbs,** indicating an action.
 - Do not name a class ```CreateEmployee{``` or a method ```EmployeeName() ```, for example.
@@ -125,7 +127,7 @@ public class DateParser{
     public Date parse(String date);
 }
 ```
-
+</details>
 
 #### Add context that provides meaning
 ```
