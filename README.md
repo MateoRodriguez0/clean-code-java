@@ -62,7 +62,9 @@ for(int i=0; i < nuumberOfRequests){
 ```
 </details>
 
-#### Avoid misinformation
+<details>
+
+<summary>Avoid misinformation</summary>
 
 Avoid calling classes with names that are difficult to look up and name.
 ```java
@@ -82,6 +84,7 @@ These two classes do not have a clear difference, therefore they can cause confu
 public class ProductData{}
 public class ProductInfo{}
 ```
+</details>
 
 #### Use pronounceable names
 
