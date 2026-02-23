@@ -142,14 +142,6 @@ This way It becomes clearer what each one is used.
 ```user.getFirstName()``` **vs** ```user.getAddrFirstName()```
 </details>
 
-#### Add context that provides meaning
-```
-firstName, lastName, street, houseNumber, city,state, zipcode.
-```
-These variables clearly form an address when used together, but adding a prefix could provide information. For example, if a User class has a name but also an address.
-
-This way It becomes clearer what each one is used.
-```user.getFirstName()``` **vs** ```user.getAddrFirstName()```
 ### Functions
 - They're very **small.**
 - They must do **one thing.**
