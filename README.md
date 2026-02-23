@@ -34,6 +34,7 @@ In this repository, I will be documenting the concepts, principles, and best pra
 
 ## Principles of Clean Code
 Clean code is easy of read, understand and modify. it's achieved through a clear structured, meaningful names, small functions and **Responsability per Component**. its quality is maintained and improved through continuous and safe refactoring, supported by a good unit test coverage that allows those changes to be made with confidence.
+
 ### Names that reveal intention
 
 <details>
@@ -86,7 +87,9 @@ public class ProductInfo{}
 ```
 </details>
 
-#### Use pronounceable names
+<details>
+
+<summary>Use pronounceable names</summary>
 
 ❌ **Bad example** 
 ```java
@@ -109,6 +112,7 @@ String lastname;
   String leastUsedName;
   ```
 - It's much better to choose a very large name than one that doesn't convey its meaning clearly.
+</details>
 
 #### Names of classes and methods
 - The classes names must be **a name or set of names,** should not be verbs. 
