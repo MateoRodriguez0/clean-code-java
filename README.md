@@ -36,7 +36,9 @@ In this repository, I will be documenting the concepts, principles, and best pra
 Clean code is easy of read, understand and modify. it's achieved through a clear structured, meaningful names, small functions and **Responsability per Component**. its quality is maintained and improved through continuous and safe refactoring, supported by a good unit test coverage that allows those changes to be made with confidence.
 ### Names that reveal intention
 
-#### Names should be clear and reflect our intention.
+<details>
+
+<summary>Names should be clear and reflect our intention.</summary>
 
 ❌ **Bad example**  
 ```java
@@ -58,6 +60,7 @@ for(int i=0; i < nuumberOfRequests){
     processsRequest(request.get(i);
 }
 ```
+</details>
 
 #### Avoid misinformation
 
