@@ -232,11 +232,19 @@ This way It becomes clearer what each one is used.
 - Return **exceptions** instead of error codes.
 
 #### Code smell in functions
-- **Too many arguments**
+<details>
+   <summary>Too many arguments</summary>
+ 	
   - ⚠️**Avoid the functions with >3 arguments**⚠️
   - Divide the function into smaller functions or encapsulate the arguments in a class.
-- **output arguments:** Avoid passing output arguments in the functions.
+  - **output arguments:** Avoid passing output arguments in the functions.
+</details>
+
+<details>
+<summary>output arguments</summary>
   
+   Avoid passing output arguments in the functions.
+
   ❌ **Bad example**
   ```java
   public void calculateSum(List<Integer> numbers, int result) {
@@ -244,11 +252,17 @@ This way It becomes clearer what each one is used.
   ✅ **Goog example**
 
   Instead it should return the result.
-    ```java
+  ```java
   public int calculateSum(List<Integer> numbers) {
   ```  
-- **Passing flags in the arguments:** Avoid passing booleans, as it often indicates that the function is doing more of one thing. In the next example, the better to  make two functions for each typeof  item.
-   ```
+</details>
+
+<details>
+<summary>Passing flags in the arguments</summary>
+
+  Avoid passing booleans, as it often indicates that the function is doing more of one thing. In the next example, it's better to have one function for each item type.
+
+  ```java
   private static final Double PREMIUM_DISCOUNT_FACTOR = 0.2;
   private static final Double REGULAR_DISCOUNT_FACTOR = 0.1;
 
@@ -260,7 +274,14 @@ This way It becomes clearer what each one is used.
     return item.getPrice() * REGULAR_DISCOUNT_FACTOR;
   }
    ``` 
-- **Died functions:** These are unused functions; these usually indicate that the function does more than one thing. In the following example, it would be best to create two methods for each item type.
+</details>
+
+<details>
+<summary>Died functions</summary>
+
+  Functions that are never called should be removed. If we need them in the future, we can find them in the version control software.
+</details>
+
 ### Comments
 - Add comments just when strictly necessary.
 - They're very **difficult to maintain,** code change a lot and comments become **quickly outdated.**
