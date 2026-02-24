@@ -1,4 +1,4 @@
- # Solid and clean code in Java
+# SOLID and clean code in Java
 In this repository, I will be documenting the concepts, principles, and best practices of Clean Code by the SOLID principles in Java. My goal is to have a resource that I can return to when I need to review or consult specific examples. here, you'll find examples organized by topics, along with brief explanations for each. 
 
 ## 📚 Table of Contents
@@ -11,29 +11,29 @@ In this repository, I will be documenting the concepts, principles, and best pra
     - [Names of classes and methods](#names-of-classes-and-methods)
     - [Add context that provides meaning](#add-context-that-provides-meaning)
   - [Functions](#functions)
-   - [Code smell in functions](#code-smell-in-functions)
+    - [Code smell in functions](#code-smell-in-functions)
   - [Comments](#comments)
-    - [Code smells in commentss](#code-smells-in-comments)
+    - [Code smells in comments](#code-smells-in-comments)
     - [Good comments](#good-comments)
   - [Code Formatting](#code-formatting)
   - [Error Handling](#error-handling)
   - [Unit Testing](#unit-testing)
     - [Test Driven development](#test-driven-development)
-  - [Code smells in the development environment](#Code-smells-in-the-development-environment)
+  - [Code smells in the development environment](#code-smells-in-the-development-environment)
   - [Code Smells in Java](#code-smells-in-java)
     - [Inheriting constants](#inheriting-constants)
     - [Enums vs Constants](#enums-vs-constants)
 - [SOLID Principles](#solid-principles)
   - [Cohesion](#cohesion)
   - [Coupling](#coupling)
-  - [ Responsibility Principle (SRP)](#-responsibility-principle-srp)
+  - [Responsibility Principle (SRP)](#responsibility-principle-srp)
   - [Open/Closed Principle (OCP)](#openclosed-principle-ocp)
   - [Liskov Substitution Principle (LSP)](#liskov-substitution-principle-lsp)
   - [Interface Segregation Principle (ISP)](#interface-segregation-principle-isp)
   - [Dependency Inversion Principle (DIP)](#dependency-inversion-principle-dip)
 
 ## Principles of Clean Code
-Clean code is easy of read, understand and modify. it's achieved through a clear structured, meaningful names, small functions and **Responsability per Component**. its quality is maintained and improved through continuous and safe refactoring, supported by a good unit test coverage that allows those changes to be made with confidence.
+Clean code is easy of read, understand and modify. it's achieved through a clear structured, meaningful names, small functions and **Responsibility per Component**. its quality is maintained and improved through continuous and safe refactoring, supported by a good unit test coverage that allows those changes to be made with confidence.
 
 ### Names that reveal intention
 
@@ -45,7 +45,7 @@ Clean code is easy of read, understand and modify. it's achieved through a clear
 ```java
 int d;
 int m;
-int m;
+int y;
 ```
 
 ✅ **Good example** 
@@ -57,8 +57,8 @@ int yearOfBirth;
 
 Although in loops it is entirely possible and reasonable to create short names for variables.
 ```java
-for(int i=0; i < nuumberOfRequests){
-    processsRequest(request.get(i);
+for(int i=0; i < numberOfRequests){
+    processRequest(request.get(i);
 }
 ```
 </details>
@@ -116,7 +116,7 @@ String lastname;
 
 <details>
 <summary>Names of classes and methods</summary>
-	
+
 - The classes names must be **a name or set of names,** should not be verbs. 
 - The methods must be **verbs,** indicating an action.
 - Do not name a class ```CreateEmployee{``` or a method ```EmployeeName() ```, for example.
@@ -130,7 +130,7 @@ public class DateParser{
 </details>
 
 <details>
-	
+
 <summary>Add context that provides meaning</summary>
 
 ```
@@ -141,6 +141,8 @@ These variables clearly form an address when used together, but adding a prefix 
 This way It becomes clearer what each one is used.
 ```user.getFirstName()``` **vs** ```user.getAddrFirstName()```
 </details>
+
+[⬆️ Back to Table of Contents](#-table-of-contents)
 
 ### Functions
 - They're very **small.**
@@ -162,7 +164,7 @@ This way It becomes clearer what each one is used.
     return total;
   }
   ```
-  ✅**Good example**
+  ✅ **Good example**
 
   Now with the refactored code, you can see that each function does only one thing and does it as the previous one, making it easier to read.
   ```java
@@ -203,7 +205,7 @@ This way It becomes clearer what each one is used.
     }
   }
   ```
-  ✅ **Goog example**
+  ✅ **Good example**
   
   However, in this version, the Person class only handles its functions, and the Car class handles its own.
    ```java
@@ -234,7 +236,7 @@ This way It becomes clearer what each one is used.
 #### Code smell in functions
 <details>
    <summary>Too many arguments</summary>
- 	
+ 
   - ⚠️**Avoid the functions with >3 arguments**⚠️
   - Divide the function into smaller functions or encapsulate the arguments in a class.
   - **output arguments:** Avoid passing output arguments in the functions.
@@ -249,7 +251,7 @@ This way It becomes clearer what each one is used.
   ```java
   public void calculateSum(List<Integer> numbers, int result) {
   ```  
-  ✅ **Goog example**
+  ✅ **Good example**
 
   Instead it should return the result.
   ```java
@@ -282,6 +284,8 @@ This way It becomes clearer what each one is used.
   Functions that are never called should be removed. If we need them in the future, we can find them in the version control software.
 </details>
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
+
 ### Comments
 - Add comments just when strictly necessary.
 - They're very **difficult to maintain,** code change a lot and comments become **quickly outdated.**
@@ -291,7 +295,7 @@ This way It becomes clearer what each one is used.
 
   ❌ **Bad example**
   ```java
-  //Chek if password is  ServiceForEfficientUpdateMysqlDatabase
+  // Check if password is secure
   if(password != null && password.length > 9 &&!password.contains(username))
   ```
   ✅ **good example**
@@ -302,35 +306,53 @@ This way It becomes clearer what each one is used.
 - Never leave code commented out that is no longer being used. **Version control systems make commented-out code unnecessary.**
 
 #### Code smells in comments
-- **Inappropriate information:** anything better in another system (e.g., version control system)  
-    ```java
-     //@Author Mateo Josue
-     //Create Date: 10-07-2025
-     public class Comments
-    ```
-- **Redundant comments:** These types of comments do not add value because they are too obvious.
 
+<details>
+<summary>Inappropriate information</summary>
 
-    ```java
-    /**
-    *
-    * @param a The first number
-    * @param a The second number
-    * @return a+b
-    */
-     public Integer add(Integer a, Integer b){
-         return a +b;
-     }
-    ```
-- **Obsolete comments:** Any comment outdated must be updated or deleted, because it adds nothing.
+Anything better kept in another system (e.g., version control system).
+```java
+ //@Author Mateo Josue
+ //Create Date: 10-07-2025
+ public class Comments
+```
+</details>
 
-    ```java
-     private Date LastLoginDate; //Last login date as String (DD-MM-YYYY HH:MM)
-    ```
-- **Poorly written comments**
-  - Do not make spelling mistakes.
-  - Don't comment on obvious things! You must be direct.
-  - Make sure you understand.
+<details>
+<summary>Redundant comments</summary>
+
+These types of comments do not add value because they are too obvious.
+
+```java
+/**
+*
+* @param a The first number
+* @param b The second number
+* @return a+b
+*/
+ public Integer add(Integer a, Integer b){
+     return a +b;
+ }
+```
+</details>
+
+<details>
+<summary>Obsolete comments</summary>
+
+Any comment that is outdated must be updated or deleted, because it adds nothing.
+
+```java
+ private Date LastLoginDate; //Last login date as String (DD-MM-YYYY HH:MM)
+```
+</details>
+
+<details>
+<summary>Poorly written comments</summary>
+
+- Do not make spelling mistakes.
+- Don't comment on obvious things! You must be direct.
+- Make sure you understand what you are commenting.
+</details>
 
 #### Good comments
 Complex regular expressions at a glance.  
@@ -340,18 +362,24 @@ Pattern.matches("^(0[1-9]|[12][0-9]|3[01])([-/.])(0[1-9]|1[0-2])\\2(\\d{4})$")
 ```
 Comments in critical locations that require code changes.   
 ```java
-//TODO except this metod tochange when the client changes auth API
+//TODO expect this method to change when the client changes auth API
 public void login(User user){
 ```
 
 _The comments on a public API that **will use a lot of people** are another clear example of good comments._
+
+[⬆️ Back to Table of Contents](#-table-of-contents)
+
 ### Code format
 - Configure the IDE to automatically apply formats when saving changes.
 - The **entire team must write under the same rules.**
 - [Google styles guide](https://google.github.io/styleguide/)
 - **Vertical format**. density, order, and distance.
   
-   ❌ **High density**
+  <details>
+  <summary>❌ High density / ✅ Low density</summary>
+
+  ❌ **High density**
 
   This code has high density and hinders reading. 
   ~~~~java
@@ -396,7 +424,10 @@ _The comments on a public API that **will use a lot of people** are another clea
     }
   } 
   ```
- 
+  </details>
+
+  <details>
+  <summary>❌ Messy code / ✅ Ordered code</summary>
 
   ❌ **Messy code**
   It's difficult to read the code if the functions don't follow an order.
@@ -431,8 +462,11 @@ _The comments on a public API that **will use a lot of people** are another clea
   }
 
   ```
+  </details>
 
-  
+  <details>
+  <summary>❌ Bad distance / ✅ Good distance</summary>
+
   ❌ **Bad example**
   
   This code isn't separated correctly and hinders reading. 
@@ -473,6 +507,8 @@ _The comments on a public API that **will use a lot of people** are another clea
         return configAsString;
   }
   ```
+  </details>
+
 - **Horizontal Format**. Density and indentation.
   
   ❌ **High density**
@@ -501,7 +537,7 @@ _The comments on a public API that **will use a lot of people** are another clea
   ```
 
 
-  ❌ **Bad identation**
+  ❌ **Bad indentation**
 
   The code does not respect the margins, and the flow of logic is not clearly visible.
   ```java
@@ -516,160 +552,174 @@ _The comments on a public API that **will use a lot of people** are another clea
   - Recommended **2 or 4 spaces** of indentation
   - Recommended **maximum 100 characters,** after that amount, make a line break.
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
+
 ### Error Handling
 Error handling can make your code very dirty, so it's worth paying attention to.
 
-- Return **exceptions** instead of error codes
+<details>
+<summary>Return exceptions instead of error codes</summary>
 
+❌ **Bad example**
 
+The problem with this code is that they have to control all errors, and the correct execution is not clearly seen.
 
-    ❌ **Bad example**
+```java
+public class DeviceController {
 
-    The problem with this code is that they have to control all errors, and the correct execution is not clearly seen.
-
-    ```java
-    public class DeviceController {
-
-        public void sendShutDown() {
-            DeviceHandle handle = getHandle(DEV1);
-            //check the state of the device 
-            if (handle != DeviceHandle.INVALID) {
-                //save the state of the device in the record field
-                DeviceRecord record = retrieveDeviceRecord(handle);
-                //if not suspend, shut down
-                if (record.getStatus() != DEVICE_SUSPENDED) {
-                    pauseDevice(handle);
-                    clearDeviceWorkQueue(handle);
-                    closeDevice(handle);
-                }else {
-                    logger.log(“Device suspended. Unable to shut down”);
-                }
-            }else {
-                logger.log(“Invalid handle for: ” + DEV1.toString());
-            }
-        }
-    }
-    ```
-
-    ✅ **Good example**
-
-    However, in this version, we can see the separation of responsibilities: while one function contains the logic and throws an exception in case of error, the other function handles errors.
-
-    ```java
     public void sendShutDown() {
-        try {
-            tryToShutDown();
-        } catch (DeviceShutDownError e) {
-            logger.log(e);
-        }
-    }
-
-    private void tryToShutDown() throws DeviceShutDownError {
         DeviceHandle handle = getHandle(DEV1);
-        DeviceRecord record = retrieveDeviceRecord(handle);
-        pauseDevice(handle);
-        clearDeviceWorkQueue(handle);
-        closeDevice(handle);
-    }
-    ```
-
-    **Recommendation:** Have the try catch separate from a function, to have both functions working at a  level of responsibility.
-
-
-- **Unchecked exceptions**
-  
-  **Unchecked exceptions** are exceptions that inherit from the Exception class and do not require immediate handling. However, **Checked exceptions** require us to throw them or catch them in a try-catch block, as in the following code.
-
-    ```java
-    public class Driver {
-        public void startDriving() {
-            try {
-                car.start();
-            } catch (BatteryFailureException | EngineFailureException e) {
-                logger.log("Could not start driving. Car failure: " + e);
+        //check the state of the device 
+        if (handle != DeviceHandle.INVALID) {
+            //save the state of the device in the record field
+            DeviceRecord record = retrieveDeviceRecord(handle);
+            //if not suspend, shut down
+            if (record.getStatus() != DEVICE_SUSPENDED) {
+                pauseDevice(handle);
+                clearDeviceWorkQueue(handle);
+                closeDevice(handle);
+            }else {
+                logger.log("Device suspended. Unable to shut down");
             }
+        }else {
+            logger.log("Invalid handle for: " + DEV1.toString());
         }
     }
+}
+```
 
-    public class Car {
-        public void start() throws BatteryFailureException, EngineFailureException {
-            battery.connect();
-            engine.start();
+✅ **Good example**
+
+However, in this version, we can see the separation of responsibilities: while one function contains the logic and throws an exception in case of error, the other function handles errors.
+
+```java
+public void sendShutDown() {
+    try {
+        tryToShutDown();
+    } catch (DeviceShutDownError e) {
+        logger.log(e);
+    }
+}
+
+private void tryToShutDown() throws DeviceShutDownError {
+    DeviceHandle handle = getHandle(DEV1);
+    DeviceRecord record = retrieveDeviceRecord(handle);
+    pauseDevice(handle);
+    clearDeviceWorkQueue(handle);
+    closeDevice(handle);
+}
+```
+
+**Recommendation:** Have the try catch separate from a function, to have both functions working at a level of responsibility.
+
+</details>
+
+<details>
+<summary>Unchecked exceptions</summary>
+
+**Unchecked exceptions** are exceptions that inherit from the Exception class and do not require immediate handling. However, **Checked exceptions** require us to throw them or catch them in a try-catch block, as in the following code.
+
+```java
+public class Driver {
+    public void startDriving() {
+        try {
+            car.start();
+        } catch (BatteryFailureException | EngineFailureException e) {
+            logger.log("Could not start driving. Car failure: " + e);
         }
     }
+}
 
-    public class Battery {
-        public void connect() throws BatteryFailureException;
+public class Car {
+    public void start() throws BatteryFailureException, EngineFailureException {
+        battery.connect();
+        engine.start();
     }
+}
 
-    public class Engine {
-        public void start() throws EngineFailureException;
-    }
+public class Battery {
+    public void connect() throws BatteryFailureException;
+}
 
-    ```
-    In this code, the **Battery** and **Engine** methods throw **Checked exceptions** type exceptions, so each method that invokes them must throw those exceptions or capture them. However, if they were **Unchecked exceptions**, they would only be captured in the **startDriving** method.
+public class Engine {
+    public void start() throws EngineFailureException;
+}
 
-- Never return **null**
+```
+In this code, the **Battery** and **Engine** methods throw **Checked exceptions** type exceptions, so each method that invokes them must throw those exceptions or capture them. However, if they were **Unchecked exceptions**, they would only be captured in the **startDriving** method.
 
-  ❌ **Bad example**
-  
-  Returning **null** forces us to always validate it, and if it is not validated every time a method that returns **null** is invoked, a **NullPointerException** would be thrown.**
+</details>
 
-  ```java
-  public void processRequestBatch() {
-    List<Request> requestList = getRequestList();
-    if (requestList != null) {
-        for (Request r : requestList) {
-            processRequest(r);
-        }
-    }
+<details>
+<summary>Never return null</summary>
+
+❌ **Bad example**
+
+Returning **null** forces us to always validate it, and if it is not validated every time a method that returns **null** is invoked, a **NullPointerException** would be thrown.
+
+```java
+public void processRequestBatch() {
+  List<Request> requestList = getRequestList();
+  if (requestList != null) {
+      for (Request r : requestList) {
+          processRequest(r);
+      }
   }
+}
 
-  ```
+```
 
-  ✅ **Good example**
+✅ **Good example**
 
-  However, if the ``` getRequestList()``` method returns an empty object instead of **null**, that unnecessary validation is skipped.
-  ```java
-  public void processRequestBatch() {
-    List<Request> requestList = getRequestList();
-    for (Request r : requestList) {
-            processRequest(r);
-        }
-  }
+However, if the ``` getRequestList()``` method returns an empty object instead of **null**, that unnecessary validation is skipped.
+```java
+public void processRequestBatch() {
+  List<Request> requestList = getRequestList();
+  for (Request r : requestList) {
+          processRequest(r);
+      }
+}
 
-  ```
-    - Never pass **null**
+```
 
-    ❌ **Bad example**
-    
-    In this example, the same thing happens as in the previous case: passing null as a parameter forces us to perform unnecessary validations, and if a method does not validate **null**, a **NullPointerException** would occur.**null** ocurriria una **NullPointerException**
-    ```java
-    public Point getMiddlePoint(Point a, Point b) {
-        if (a != null && b != null) {
-            Double resultPointX = (a.getX() - b.getX()) / 2;
-            Double resultPointY = (a.getY() - b.getY()) / 2;
+</details>
 
-            return new Point(resultPointX, resultPointY);
-        }
+<details>
+<summary>Never pass null</summary>
 
-        // Return?
-    }
+❌ **Bad example**
 
-    ```
-
-    ✅ **Good example**
-
-    On the other hand, if we do not send **null** as the value of a parameter, there would be no reason to perform that validation, although this case is more difficult than the previous one since we cannot control who is calling our method and how it is being implemented.
-     ```java
-    public Point getMiddlePoint(Point a, Point b) {
+In this example, the same thing happens as in the previous case: passing null as a parameter forces us to perform unnecessary validations, and if a method does not validate **null**, a **NullPointerException** would occur.
+```java
+public Point getMiddlePoint(Point a, Point b) {
+    if (a != null && b != null) {
         Double resultPointX = (a.getX() - b.getX()) / 2;
         Double resultPointY = (a.getY() - b.getY()) / 2;
 
         return new Point(resultPointX, resultPointY);
-
     }
-    ```
+
+    // Return?
+}
+
+```
+
+✅ **Good example**
+
+On the other hand, if we do not send **null** as the value of a parameter, there would be no reason to perform that validation, although this case is more difficult than the previous one since we cannot control who is calling our method and how it is being implemented.
+```java
+public Point getMiddlePoint(Point a, Point b) {
+    Double resultPointX = (a.getX() - b.getX()) / 2;
+    Double resultPointY = (a.getY() - b.getY()) / 2;
+
+    return new Point(resultPointX, resultPointY);
+
+}
+```
+
+</details>
+
+[⬆️ Back to Table of Contents](#-table-of-contents)
 
 ### Unit Testing
 - Essential for code refactoring -
@@ -682,12 +732,16 @@ Error handling can make your code very dirty, so it's worth paying attention to.
 **2.** Write just enough code to pass the test
 
 **3.** Improve the code without changing its behavior
+
+[⬆️ Back to Table of Contents](#-table-of-contents)
+
 ### Code smells in the development environment
 - **Compilation Requires More Than One Step:** You should be able to compile the code in the simplest way possible.
 - **Tests require more than one step**
 - Tests should be run with a single command
 - Danger of **Not running tests regularly out of "laziness"**.
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 
 ### Code smells in Java
 
@@ -763,26 +817,53 @@ In this example, the **EasyGame** class inherits from **Game**, which in turn im
     public abstract int numberOfLevels();
   }
   ``` 
-## principles solid
-They are a set of principles proposed by Robert C. Marin that will help us:
+
+[⬆️ Back to Table of Contents](#-table-of-contents)
+
+## SOLID Principles
+They are a set of principles proposed by Robert C. Martin that will help us:
 - Create **scalable software**
 - Create a **clean and maintainable architecture**
 - Write code that is **easier to read** and understand
-- Create modules with high **and loose coupling**
-  
+- Create modules with **high cohesion and loose coupling**
+
+<details>
+<summary>
+
 ### Cohesion 
+</summary>
+
 - It is the degree to which the elements of a module are related.
 - We are interested in a module having a very high cohesion.
 
-### coupling
+[⬆️ Back to Table of Contents](#-table-of-contents)
+
+</details>
+
+<details>
+<summary>
+
+### Coupling
+</summary>
+
 - The degree to which two modules are related to each other.
 - The modules should have little coupling. 
 - If a module is modified, *it should affect the others as little as possible.*
 
-###  Responsibility principle (SRP)
+[⬆️ Back to Table of Contents](#-table-of-contents)
+
+</details>
+
+<details>
+<summary>
+
+### Responsibility Principle (SRP)
+</summary>
 
 - A module should have **one reason to change,** not that a module should do one thing.
-- A module must be **responsible for a  user of the system.**
+
+<details>
+<summary>A module must be responsible for a user of the system.</summary>
 
 ❌ **Bad example**
   
@@ -853,8 +934,18 @@ public class ReportPrinter {
 }
 ```
 
+</details>
 
-### Open-close principle(OCP)
+[⬆️ Back to Table of Contents](#-table-of-contents)
+
+</details>
+
+<details>
+<summary>
+
+### Open/Closed Principle (OCP)
+</summary>
+
 - A software artifact must be open for extension but closed for modification.
 - We must be able to increase the functionality of a software artifact without modifying existing functionalities. 
 
@@ -903,7 +994,17 @@ public class PaymentProcessor {
     }
 }
 ```
+
+[⬆️ Back to Table of Contents](#-table-of-contents)
+
+</details>
+
+<details>
+<summary>
+
 ### Liskov Substitution Principle (LSP)
+</summary>
+
 All classes that inherit from another can be used interchangeably without any problem, including the parent class.
 
 ❌ **Bad example**
@@ -934,10 +1035,10 @@ public class Dog extends Mammal {
 
 public class Dolphin extends Mammal {
 
-	@Override
-	public void walk() {
-	   throw new CannotWalkException("I am a dolphin, I cannot walk!");
-	}
+@Override
+public void walk() {
+   throw new CannotWalkException("I am a dolphin, I cannot walk!");
+}
 }
 ```
 ✅ **Good example** 
@@ -946,7 +1047,7 @@ The correct thing to do would be to create a new interface that contains that fu
 
 ```java
 public class landMammal extends Mammal{
-	public void walk() {
+public void walk() {
         System.out.println("I am walking");
     }
 }
@@ -973,8 +1074,18 @@ public class Dolphin extends Mammal {
 }
 
 ```
-### Interface segregation principle (ISP)
-Any client must depend on functions they don't use.
+
+[⬆️ Back to Table of Contents](#-table-of-contents)
+
+</details>
+
+<details>
+<summary>
+
+### Interface Segregation Principle (ISP)
+</summary>
+
+No client should be forced to depend on methods it doesn't use.
 
 ❌ **Bad example**
 
@@ -983,7 +1094,7 @@ We have this interface that defines mathematical operations for two calculators,
 ```java
 public interface Operations {
 
-	public Double add(Double a, Double b);
+public Double add(Double a, Double b);
 
     public Double subtract(Double a, Double b);
 
@@ -1027,24 +1138,20 @@ The correct thing is for the basic calculator to implement an interface that onl
 ```java
 public interface Operations {
     
-	public Double add(Double a, Double b);
+public Double add(Double a, Double b);
 
     public Double subtract(Double a, Double b);
 
     public Double multiply(Double a, Double b);
 
     public Double divide(Double a, Double b);
-
-    public Double sine(Double angle);
-
-    public Double cosine(Double angle);
 }
 ```
 
 This new interface would be for the advanced calculator.
 ```java
 public interface TrigonometricOperations {
-	public Double sine(Double angle);
+public Double sine(Double angle);
     public Double cosine(Double angle);
 }
 
@@ -1079,10 +1186,16 @@ public class BasicCalculator implements Operations {
 }
 ```
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 
+</details>
 
+<details>
+<summary>
 
-### Dependency inversion principle (DIP)
+### Dependency Inversion Principle (DIP)
+</summary>
+
 - The most flexible systems are those that depend on abstractions, not concreteness.
 - In Java, a module must depend on interfaces or abstract classes, not volatile implementations.
 - This is achieved through mechanisms that create instances of the desired implementations.
@@ -1091,4 +1204,6 @@ public class BasicCalculator implements Operations {
 
 [Example of the dependency inversion principle](https://github.com/MateoRodriguez0/clean-code-java/tree/main/src/main/java/com/clean/code/solid/idp)
 
+[⬆️ Back to Table of Contents](#-table-of-contents)
 
+</details>
