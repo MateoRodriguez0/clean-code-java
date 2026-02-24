@@ -37,6 +37,7 @@ Clean code is easy of read, understand and modify. it's achieved through a clear
 
 ### Names that reveal intention
 
+<a id="names-should-be-clear-and-reflect-our-intention"></a>
 <details>
 
 <summary>Names should be clear and reflect our intention.</summary>
@@ -63,6 +64,7 @@ for(int i=0; i < numberOfRequests){
 ```
 </details>
 
+<a id="avoid-misinformation"></a>
 <details>
 
 <summary>Avoid misinformation</summary>
@@ -87,6 +89,7 @@ public class ProductInfo{}
 ```
 </details>
 
+<a id="use-pronounceable-names"></a>
 <details>
 
 <summary>Use pronounceable names</summary>
@@ -114,6 +117,7 @@ String lastname;
 - It's much better to choose a very large name than one that doesn't convey its meaning clearly.
 </details>
 
+<a id="names-of-classes-and-methods"></a>
 <details>
 <summary>Names of classes and methods</summary>
 
@@ -129,6 +133,7 @@ public class DateParser{
 ```
 </details>
 
+<a id="add-context-that-provides-meaning"></a>
 <details>
 
 <summary>Add context that provides meaning</summary>
