@@ -37,10 +37,12 @@ Clean code is easy of read, understand and modify. it's achieved through a clear
 
 ### Names that reveal intention
 
-<a id="names-should-be-clear-and-reflect-our-intention"></a>
 <details>
 
-<summary>Names should be clear and reflect our intention.</summary>
+<summary>
+
+#### Names should be clear and reflect our intention.
+</summary>
 
 ❌ **Bad example**  
 ```java
@@ -64,10 +66,12 @@ for(int i=0; i < numberOfRequests){
 ```
 </details>
 
-<a id="avoid-misinformation"></a>
 <details>
 
-<summary>Avoid misinformation</summary>
+<summary>
+
+#### Avoid misinformation
+</summary>
 
 Avoid calling classes with names that are difficult to look up and name.
 ```java
@@ -89,10 +93,12 @@ public class ProductInfo{}
 ```
 </details>
 
-<a id="use-pronounceable-names"></a>
 <details>
 
-<summary>Use pronounceable names</summary>
+<summary>
+
+#### Use pronounceable names
+</summary>
 
 ❌ **Bad example** 
 ```java
@@ -117,9 +123,12 @@ String lastname;
 - It's much better to choose a very large name than one that doesn't convey its meaning clearly.
 </details>
 
-<a id="names-of-classes-and-methods"></a>
 <details>
-<summary>Names of classes and methods</summary>
+
+<summary>
+
+#### Names of classes and methods
+</summary>
 
 - The classes names must be **a name or set of names,** should not be verbs. 
 - The methods must be **verbs,** indicating an action.
@@ -133,10 +142,12 @@ public class DateParser{
 ```
 </details>
 
-<a id="add-context-that-provides-meaning"></a>
 <details>
 
-<summary>Add context that provides meaning</summary>
+<summary>
+
+#### Add context that provides meaning
+</summary>
 
 ```
 firstName, lastName, street, houseNumber, city,state, zipcode.
