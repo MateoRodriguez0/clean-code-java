@@ -1,5 +1,5 @@
 # SOLID and clean code in Java
-In this repository, I will be documenting the concepts, principles, and best practices of Clean Code by the SOLID principles in Java. My goal is to have a resource that I can return to when I need to review or consult specific examples. here, you'll find examples organized by topics, along with brief explanations for each. 
+In this repository, I will be documenting the concepts, principles, and best practices of Clean Code by the SOLID principles in Java. My goal is to have a resource that I can return to when I need to review or consult specific examples. Here, you'll find examples organized by topics, along with brief explanations for each. 
 
 ## 📚 Table of Contents
 
@@ -856,47 +856,27 @@ They are a set of principles proposed by Robert C. Martin that will help us:
 - Write code that is **easier to read** and understand
 - Create modules with **high cohesion and loose coupling**
 
-<details>
-<summary>
-
 ### Cohesion 
-</summary>
-
 - It is the degree to which the elements of a module are related.
 - We are interested in a module having a very high cohesion.
 
 [⬆️ Back to Table of Contents](#-table-of-contents)
 
-</details>
-
-<details>
-<summary>
-
 ### Coupling
-</summary>
-
 - The degree to which two modules are related to each other.
 - The modules should have little coupling. 
 - If a module is modified, *it should affect the others as little as possible.*
 
 [⬆️ Back to Table of Contents](#-table-of-contents)
 
-</details>
-
-<details>
-<summary>
-
 ### Responsibility Principle (SRP)
-</summary>
-
 - A module should have **one reason to change,** not that a module should do one thing.
-
-<details>
-<summary>A module must be responsible for a user of the system.</summary>
-
-❌ **Bad example**
+- A module must be responsible for a user of the system.
   
-In this example, the module would have more than one reason to change.
+<details>
+<summary>Example</summary>
+
+❌ **In this example, the module would have more than one reason to change.**
 
 - If the employee information changes.
 - If the way the annual salary is calculated changes.
@@ -922,11 +902,8 @@ public class Employee {
     }
 }
 ```
-
-
- ✅ **Good example**
  
-Now this way, each module would have only one reason to change.
+✅ **Now this way, each module would have only one reason to change.**
 
  ```java
 public class Employee {
@@ -963,24 +940,17 @@ public class ReportPrinter {
 }
 ```
 
-</details>
-
 [⬆️ Back to Table of Contents](#-table-of-contents)
-
 </details>
-
-<details>
-<summary>
 
 ### Open/Closed Principle (OCP)
-</summary>
-
 - A software artifact must be open for extension but closed for modification.
-- We must be able to increase the functionality of a software artifact without modifying existing functionalities. 
+- We must be able to increase the functionality of a software artifact without modifying existing functionalities.
+  
+<details>
+<summary>Example</summary>
 
-❌ **Bad example**
-
-In this example, we have a class with one function that processes payments. The problem is that every time a payment is added, the function must be modified.
+❌ **In this example, we have a class with one function that processes payments. The problem is that every time a payment is added, the function must be modified.**
 ```java
  public class PaymentProcessor {
     public void process(String paymentType) {
@@ -993,9 +963,7 @@ In this example, we have a class with one function that processes payments. The 
 }
 ```
 
-✅ **Good example** 
-
-But if we use an interface that allows us to create implementations for different types of payments.
+✅ **But if we use an interface that allows us to create implementations for different types of payments.**
 
 ```java
 public interface Payment {
@@ -1025,20 +993,15 @@ public class PaymentProcessor {
 ```
 
 [⬆️ Back to Table of Contents](#-table-of-contents)
-
 </details>
 
-<details>
-<summary>
-
 ### Liskov Substitution Principle (LSP)
-</summary>
+All classes that inherit from another can be used interchangeably with any problem, including the parent class.
 
-All classes that inherit from another can be used interchangeably without any problem, including the parent class.
+<details>
+<summary>Example</summary>
 
-❌ **Bad example**
-
-The **Dog and  Dolphin** classes inherit from **Mammal**, but the **Dolphin** class in the function **Walk** throws an exception because a dolphin doesn't walk, **this behavior violates the principle** because if a class has an **Mammal** object, whatever implementation, it will not cause any problem.
+❌ The **Dog and  Dolphin** classes inherit from **Mammal**, but the **Dolphin** class in the function **Walk** throws an exception because a dolphin doesn't walk, **this behavior violates the principle** because if a class has an **Mammal** object, whatever implementation, it will not cause any problem.
 ```java
 public class Mammal {
     private Integer weight;
@@ -1070,9 +1033,7 @@ public void walk() {
 }
 }
 ```
-✅ **Good example** 
-
-The correct thing to do would be to create a new interface that contains that function and remove it from **Mammal** so that all **Mammal** implementations have the same behavior.
+✅ The correct thing to do would be to create a new interface that contains that function and remove it from **Mammal** so that all **Mammal** implementations have the same behavior.
 
 ```java
 public class landMammal extends Mammal{
@@ -1108,17 +1069,14 @@ public class Dolphin extends Mammal {
 
 </details>
 
-<details>
-<summary>
-
 ### Interface Segregation Principle (ISP)
-</summary>
-
 No client should be forced to depend on methods it doesn't use.
+<details>
+<summary>Example</summary>
 
-❌ **Bad example**
 
-We have this interface that defines mathematical operations for two calculators, one basic and one advanced.
+
+❌ **We have this interface that defines mathematical operations for two calculators, one basic and one advanced.**
 
 ```java
 public interface Operations {
@@ -1160,9 +1118,7 @@ public class BasicCalculator implements Operations {
 
 ```
 
-✅ **Good example** 
-
-The correct thing is for the basic calculator to implement an interface that only contains the functions it needs.
+✅ **The correct thing is for the basic calculator to implement an interface that only contains the functions it needs.**
 
 ```java
 public interface Operations {
@@ -1216,15 +1172,9 @@ public class BasicCalculator implements Operations {
 ```
 
 [⬆️ Back to Table of Contents](#-table-of-contents)
-
 </details>
 
-<details>
-<summary>
-
 ### Dependency Inversion Principle (DIP)
-</summary>
-
 - The most flexible systems are those that depend on abstractions, not concreteness.
 - In Java, a module must depend on interfaces or abstract classes, not volatile implementations.
 - This is achieved through mechanisms that create instances of the desired implementations.
@@ -1234,5 +1184,3 @@ public class BasicCalculator implements Operations {
 [Example of the dependency inversion principle](https://github.com/MateoRodriguez0/clean-code-java/tree/main/src/main/java/com/clean/code/solid/idp)
 
 [⬆️ Back to Table of Contents](#-table-of-contents)
-
-</details>
