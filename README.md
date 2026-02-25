@@ -406,11 +406,9 @@ _The comments on a public API that **will use a lot of people** are another clea
 - **Vertical format**. density, order, and distance.
   
   <details>
-  <summary>❌ High density / ✅ Low density</summary>
+  <summary>Example of density</summary>
 
-  ❌ **High density**
-
-  This code has high density and hinders reading. 
+  ❌ **High density: This code has high density and hinders reading.**
   ~~~~java
   public class Dog {
     String name;
@@ -429,9 +427,7 @@ _The comments on a public API that **will use a lot of people** are another clea
     }
   } 
   ~~~~
-  ✅ **Low density**
-
-  It's much better to have code with blank lines separating grouped concepts.
+  ✅ **Low density: It's much better to have code with blank lines separating grouped concepts.**
   ```java
   public class Dog {
     String name;
@@ -456,10 +452,9 @@ _The comments on a public API that **will use a lot of people** are another clea
   </details>
 
   <details>
-  <summary>❌ Messy code / ✅ Ordered code</summary>
+  <summary>Example of order</summary>
 
-  ❌ **Messy code**
-  It's difficult to read the code if the functions don't follow an order.
+  ❌ **Messy code: It's difficult to read the code if the functions don't follow an order.**
   ```java
   public void c(){
   //...   
@@ -476,8 +471,7 @@ _The comments on a public API that **will use a lot of people** are another clea
   ``` 
 
 
-  ✅ **Ordered code**
-  It's much better to have a function at the top, which in turn calls other functions, declared in the order they are invoked.
+  ✅ **Ordered code: It's much better to have a function at the top, which in turn calls other functions, declared in the order they are invoked.**
   ```java
   public void a(){
      b();
@@ -494,11 +488,9 @@ _The comments on a public API that **will use a lot of people** are another clea
   </details>
 
   <details>
-  <summary>❌ Bad distance / ✅ Good distance</summary>
+  <summary>Example of distance</summary>
 
-  ❌ **Bad example**
-  
-  This code isn't separated correctly and hinders reading. 
+  ❌ **This code isn't separated correctly and hinders reading.**
 
   ```java
   public String getUserConfigAsString() {
@@ -520,8 +512,7 @@ _The comments on a public API that **will use a lot of people** are another clea
   }
   
   ```
-  ✅ **Good example**
-  However, this code does maintain a grouping by related concepts and separates different concepts.
+  ✅ **However, this code does maintain a grouping by related concepts and separates different concepts.**
    ```java
   public String getUserConfigAsString() {
       Session session = getSession();
@@ -539,47 +530,47 @@ _The comments on a public API that **will use a lot of people** are another clea
   </details>
 
 - **Horizontal Format**. Density and indentation.
+
+  <details>
+  <summary>Example of density</summary>
+
+  ❌ **High density: This code is very compact and contains no spaces, which makes it difficult to read.**
+    ```java
+     public int sumFourNumbers(Integer num1,Integer num2,Integer num3,Integer num4) {
+          if (num1!=null&&num2!=null&&num3!=null&&num4!=null) {
+              return num1+num2+num3+num4;
+          }
+          return 0;
+    }
+    ```
   
-  ❌ **High density**
+    ✅ **Low density: However, this code is more separated, using spaces to separate operators, parameters, and conditionals, so it is easier to read.**
+    ```java
+     public int sumFourNumbers(Integer num1, Integer num2, Integer num3, Integer num4) {
+          if (num1 != null && num2 != null && num3 != null && num4 != null) {
+              return num1 + num2 + num3 + num4;
+          } 
+          return 0;
+    }
+    ```
+  </details>
 
-  This code is very compact
-  and contains no spaces, which makes it difficult to read.
-  ```java
-   public int sumFourNumbers(Integer num1,Integer num2,Integer num3,Integer num4) {
-        if (num1!=null&&num2!=null&&num3!=null&&num4!=null) {
-            return num1+num2+num3+num4;
-        }
-        return 0;
-  }
-  ```
+  <details>
+  <summary>Example of identation</summary>
 
-  ✅ **Low density**
-
-  However, this code is more separated, using spaces to separate operators, parameters, and conditionals, so it is easier to read.
-  ```java
-   public int sumFourNumbers(Integer num1, Integer num2, Integer num3, Integer num4) {
-        if (num1 != null && num2 != null && num3 != null && num4 != null) {
-            return num1 + num2 + num3 + num4;
-        } 
-        return 0;
-  }
-  ```
-
-
-  ❌ **Bad indentation**
-
-  The code does not respect the margins, and the flow of logic is not clearly visible.
-  ```java
-  public int sumFourNumbers(Integer num1,Integer num2,Integer num3,Integer num4) {
-  if (num1!=null&&num2!=null&&num3!=null&&num4!=null) {
-  return num1+num2+num3+num4;
-  } 
-  return 0;
-  }
-  ```
-  - Always **follow the same indentation rules.**
-  - Recommended **2 or 4 spaces** of indentation
-  - Recommended **maximum 100 characters,** after that amount, make a line break.
+    ❌ The code does not respect the margins, and the flow of logic is not clearly visible.
+    ```java
+    public int sumFourNumbers(Integer num1,Integer num2,Integer num3,Integer num4) {
+    if (num1!=null&&num2!=null&&num3!=null&&num4!=null) {
+    return num1+num2+num3+num4;
+    } 
+    return 0;
+    }
+    ```
+    - Always **follow the same indentation rules.**
+    - Recommended **2 or 4 spaces** of indentation
+    - Recommended **maximum 100 characters,** after that amount, make a line break.
+  </details>
 
 [⬆️ Back to Table of Contents](#-table-of-contents)
 
@@ -877,7 +868,6 @@ They are a set of principles proposed by Robert C. Martin that will help us:
 <summary>Example</summary>
 
 ❌ **In this example, the module would have more than one reason to change.**
-
 - If the employee information changes.
 - If the way the annual salary is calculated changes.
 - If changes need to be made to the report.
@@ -1073,8 +1063,6 @@ public class Dolphin extends Mammal {
 No client should be forced to depend on methods it doesn't use.
 <details>
 <summary>Example</summary>
-
-
 
 ❌ **We have this interface that defines mathematical operations for two calculators, one basic and one advanced.**
 
