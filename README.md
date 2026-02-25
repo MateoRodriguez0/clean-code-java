@@ -35,7 +35,18 @@ In this repository, I will be documenting the concepts, principles, and best pra
 ## Principles of Clean Code
 <img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/d842eb5e-12a2-4b80-844f-94898cdfc7e6" />
 
-Clean code is easy of read, understand and modify. it's achieved through a clear structured, meaningful names, small functions and **Responsibility per Component**. its quality is maintained and improved through continuous and safe refactoring, supported by a good unit test coverage that allows those changes to be made with confidence.
+Clean code is **easy to read, understand, and modify**. It is written for people first and machines second — the goal is that any developer can pick it up and immediately grasp its intent without needing extra explanations.
+
+It is achieved through a combination of practices:
+
+- 🏷️ **Meaningful names** — variables, functions, and classes that clearly reveal their purpose.
+- 🔧 **Small, focused functions** — each function does one thing and does it well.
+- 💬 **Minimal and accurate comments** — the code explains itself; comments are reserved for truly complex or critical logic.
+- 📐 **Consistent formatting** — a uniform style shared by the whole team makes the codebase predictable and easier to navigate.
+- 🚨 **Proper error handling** — exceptions are preferred over error codes, and `null` is avoided to eliminate unnecessary defensive checks.
+- ✅ **High test coverage** — a solid suite of unit tests (ideally >90%) enables safe, confident refactoring at any time.
+
+Clean code quality is not a one-time effort; it is maintained and improved through **continuous, safe refactoring** supported by those tests.
 
 ### Names that reveal intention
 
