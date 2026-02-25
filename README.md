@@ -33,6 +33,8 @@ In this repository, I will be documenting the concepts, principles, and best pra
   - [Dependency Inversion Principle (DIP)](#dependency-inversion-principle-dip)
 
 ## Principles of Clean Code
+<img width="1024" height="1024" alt="image" src="https://github.com/user-attachments/assets/d842eb5e-12a2-4b80-844f-94898cdfc7e6" />
+
 Clean code is easy of read, understand and modify. it's achieved through a clear structured, meaningful names, small functions and **Responsibility per Component**. its quality is maintained and improved through continuous and safe refactoring, supported by a good unit test coverage that allows those changes to be made with confidence.
 
 ### Names that reveal intention
