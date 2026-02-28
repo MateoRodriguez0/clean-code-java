@@ -986,7 +986,7 @@ public class PaymentProcessor {
 </details>
 
 ### Liskov Substitution Principle (LSP)
-All classes that inherit from another can be used interchangeably with any problem, including the parent class.
+All classes that inherit from another can be used interchangeably without any problem, including the parent class.
 
 <details>
 <summary>Example</summary>
