@@ -556,7 +556,7 @@ _The comments on a public API that **will use a lot of people** are another clea
   </details>
 
   <details>
-  <summary>Example of identation</summary>
+  <summary>Example of indentation</summary>
 
     ❌ The code does not respect the margins, and the flow of logic is not clearly visible.
     ```java
